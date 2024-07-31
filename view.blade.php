@@ -1,6 +1,5 @@
 @extends('layouts.main')
 
-
 @section('content')
     <h1 align="center">Products in category: {{ $category['name'] }}</h1>
 
@@ -30,10 +29,6 @@
         </table>
     </form>
 
-    @php
-        // Display all products data before foreach
-        // print_r($products);
-    @endphp
     <br>
     <table class="app-cmp-data-list">
         <thead>
@@ -50,7 +45,6 @@
                     <td>{{ $product['code'] ?? 'N/A' }}</td>
                     <td>{{ $product['name'] ?? 'Unknown' }}</td>
                     <td>
-                        
                         @if(is_array($product['categories']) && !empty($product['categories'] ))
                             @foreach($product['categories'] as $category)
                             <a href="{{ route('categories.view', $category['code']) }}" class="category-box">
